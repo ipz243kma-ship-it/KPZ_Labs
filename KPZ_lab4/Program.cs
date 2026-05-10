@@ -1,6 +1,7 @@
 ﻿using KPZ_lab4.ChainOfResponsibility;
 using KPZ_lab4.Mediator;
 using KPZ_lab4.Memento;
+using KPZ_lab4.Strategy;
 
 class Program
 {
@@ -11,6 +12,7 @@ class Program
             Console.WriteLine("\n=== Лабораторна робота №4 ===");
             Console.WriteLine("1 - Завдання 1: Chain of Responsibility");
             Console.WriteLine("2 - Завдання 2: Mediator");
+            Console.WriteLine("4 - Завдання 4: Strategy");
             Console.WriteLine("5 - Завдання 5: Memento");
             Console.WriteLine("0 - Вихід");
             Console.Write("Ваш вибір: ");
@@ -22,18 +24,17 @@ class Program
                 case "1":
                     RunChainOfResponsibility();
                     break;
-
                 case "2":
                     RunMediator();
                     break;
-
+                case "4":
+                    RunStrategy();
+                    break;
                 case "5":
                     RunMemento();
                     break;
-
                 case "0":
                     return;
-
                 default:
                     Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
                     break;
@@ -71,6 +72,17 @@ class Program
         aircraft1.TakeOff();
 
         aircraft3.Land();
+    }
+
+    static void RunStrategy()
+    {
+        Console.WriteLine("\n=== Завдання 4: Strategy ===");
+
+        var localImage = new LightImageNode("images/photo.png");
+        var networkImage = new LightImageNode("https://example.com/image.jpg");
+
+        localImage.Render();
+        networkImage.Render();
     }
 
     static void RunMemento()
