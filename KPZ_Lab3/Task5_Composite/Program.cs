@@ -93,6 +93,7 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
     {
         return GetEnumerator();
     }
+<<<<<<< HEAD
 }
 
 public interface ICommand
@@ -143,6 +144,8 @@ public class AddClassCommand : ICommand
     {
         _element.RemoveClass(_className);
     }
+=======
+>>>>>>> main
 }
 
 class Program
@@ -167,12 +170,17 @@ class Program
         Console.WriteLine("After commands:");
         Console.WriteLine(div.OuterHTML());
 
+<<<<<<< HEAD
         addParagraph.Undo();
 
         Console.WriteLine("\nAfter undo paragraph:");
         Console.WriteLine(div.OuterHTML());
 
         Console.WriteLine("\nIterator work:");
+=======
+        Console.WriteLine("\nIterator work:");
+
+>>>>>>> main
         foreach (var node in div)
         {
             Console.WriteLine(node.OuterHTML());
