@@ -2,31 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public interface IVisitor
+{
+    void VisitElementNode(LightElementNode element);
+    void VisitTextNode(LightTextNode textNode);
+}
+
 public abstract class LightNode
 {
-    public string Render()
-    {
-        OnBeforeRender();
-
-        string html = BuildHTML();
-
-        OnAfterRender();
-
-        return html;
-    }
-
-    protected abstract string BuildHTML();
-
-    protected virtual void OnBeforeRender() { }
-
-    protected virtual void OnAfterRender() { }
-
-    public string OuterHTML()
-    {
-        return Render();
-    }
-
+    public abstract string OuterHTML();
     public abstract string InnerHTML();
+
+    public abstract void Accept(IVisitor visitor);
 }
 
 public class LightTextNode : LightNode
@@ -38,14 +25,13 @@ public class LightTextNode : LightNode
         _text = text;
     }
 
-    protected override string BuildHTML()
-    {
-        return _text;
-    }
+    public override string OuterHTML() => _text;
 
-    public override string InnerHTML()
+    public override string InnerHTML() => _text;
+
+    public override void Accept(IVisitor visitor)
     {
-        return _text;
+        visitor.VisitTextNode(this);
     }
 }
 
@@ -81,13 +67,13 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
 
         foreach (var child in _children)
         {
-            result += child.Render();
+            result += child.OuterHTML();
         }
 
         return result;
     }
 
-    protected override string BuildHTML()
+    public override string OuterHTML()
     {
         string classAttr =
             _classes.Count > 0
@@ -102,14 +88,14 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
         return $"<{_tagName}{classAttr}>{InnerHTML()}</{_tagName}>";
     }
 
-    protected override void OnBeforeRender()
+    public override void Accept(IVisitor visitor)
     {
-        Console.WriteLine($"Before render: <{_tagName}>");
-    }
+        visitor.VisitElementNode(this);
 
-    protected override void OnAfterRender()
-    {
-        Console.WriteLine($"After render: <{_tagName}>");
+        foreach (var child in _children)
+        {
+            child.Accept(visitor);
+        }
     }
 
     public IEnumerator<LightNode> GetEnumerator()
@@ -123,12 +109,27 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
     }
 }
 
+public class NodeCountVisitor : IVisitor
+{
+    public int ElementCount { get; private set; }
+    public int TextNodeCount { get; private set; }
+
+    public void VisitElementNode(LightElementNode element)
+    {
+        ElementCount++;
+    }
+
+    public void VisitTextNode(LightTextNode textNode)
+    {
+        TextNodeCount++;
+    }
+}
+
 class Program
 {
     static void Main()
     {
         var div = new LightElementNode("div", true, false);
-        div.AddClass("container");
 
         var h1 = new LightElementNode("h1", true, false);
         h1.AddChild(new LightTextNode("Hello World"));
@@ -139,7 +140,15 @@ class Program
         div.AddChild(h1);
         div.AddChild(p);
 
-        Console.WriteLine("\nRendered HTML:");
-        Console.WriteLine(div.Render());
+        var visitor = new NodeCountVisitor();
+
+        div.Accept(visitor);
+
+        Console.WriteLine("HTML:");
+        Console.WriteLine(div.OuterHTML());
+
+        Console.WriteLine("\nVisitor results:");
+        Console.WriteLine($"Element nodes: {visitor.ElementCount}");
+        Console.WriteLine($"Text nodes: {visitor.TextNodeCount}");
     }
 }
