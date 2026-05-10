@@ -42,9 +42,19 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
         _classes.Add(className);
     }
 
+    public void RemoveClass(string className)
+    {
+        _classes.Remove(className);
+    }
+
     public void AddChild(LightNode node)
     {
         _children.Add(node);
+    }
+
+    public void RemoveChild(LightNode node)
+    {
+        _children.Remove(node);
     }
 
     public override string InnerHTML()
@@ -83,6 +93,59 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
     {
         return GetEnumerator();
     }
+<<<<<<< HEAD
+}
+
+public interface ICommand
+{
+    void Execute();
+    void Undo();
+}
+
+public class AddChildCommand : ICommand
+{
+    private LightElementNode _parent;
+    private LightNode _child;
+
+    public AddChildCommand(LightElementNode parent, LightNode child)
+    {
+        _parent = parent;
+        _child = child;
+    }
+
+    public void Execute()
+    {
+        _parent.AddChild(_child);
+    }
+
+    public void Undo()
+    {
+        _parent.RemoveChild(_child);
+    }
+}
+
+public class AddClassCommand : ICommand
+{
+    private LightElementNode _element;
+    private string _className;
+
+    public AddClassCommand(LightElementNode element, string className)
+    {
+        _element = element;
+        _className = className;
+    }
+
+    public void Execute()
+    {
+        _element.AddClass(_className);
+    }
+
+    public void Undo()
+    {
+        _element.RemoveClass(_className);
+    }
+=======
+>>>>>>> main
 }
 
 class Program
@@ -90,21 +153,34 @@ class Program
     static void Main()
     {
         var div = new LightElementNode("div", true, false);
-        div.AddClass("container");
-
         var h1 = new LightElementNode("h1", true, false);
-        h1.AddChild(new LightTextNode("Hello World"));
-
         var p = new LightElementNode("p", true, false);
+
+        h1.AddChild(new LightTextNode("Hello World"));
         p.AddChild(new LightTextNode("This is paragraph"));
 
-        div.AddChild(h1);
-        div.AddChild(p);
+        ICommand addContainerClass = new AddClassCommand(div, "container");
+        ICommand addHeader = new AddChildCommand(div, h1);
+        ICommand addParagraph = new AddChildCommand(div, p);
 
+        addContainerClass.Execute();
+        addHeader.Execute();
+        addParagraph.Execute();
+
+        Console.WriteLine("After commands:");
+        Console.WriteLine(div.OuterHTML());
+
+<<<<<<< HEAD
+        addParagraph.Undo();
+
+        Console.WriteLine("\nAfter undo paragraph:");
         Console.WriteLine(div.OuterHTML());
 
         Console.WriteLine("\nIterator work:");
+=======
+        Console.WriteLine("\nIterator work:");
 
+>>>>>>> main
         foreach (var node in div)
         {
             Console.WriteLine(node.OuterHTML());
