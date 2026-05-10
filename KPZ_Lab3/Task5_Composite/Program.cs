@@ -4,28 +4,29 @@ using System.Collections.Generic;
 
 public abstract class LightNode
 {
-    public abstract string OuterHTML();
+    public string Render()
+    {
+        OnBeforeRender();
+
+        string html = BuildHTML();
+
+        OnAfterRender();
+
+        return html;
+    }
+
+    protected abstract string BuildHTML();
+
+    protected virtual void OnBeforeRender() { }
+
+    protected virtual void OnAfterRender() { }
+
+    public string OuterHTML()
+    {
+        return Render();
+    }
+
     public abstract string InnerHTML();
-}
-
-public interface INodeState
-{
-    string GetStateName();
-}
-
-public class CreatedState : INodeState
-{
-    public string GetStateName() => "Created";
-}
-
-public class InsertedState : INodeState
-{
-    public string GetStateName() => "Inserted";
-}
-
-public class RemovedState : INodeState
-{
-    public string GetStateName() => "Removed";
 }
 
 public class LightTextNode : LightNode
@@ -37,8 +38,15 @@ public class LightTextNode : LightNode
         _text = text;
     }
 
-    public override string OuterHTML() => _text;
-    public override string InnerHTML() => _text;
+    protected override string BuildHTML()
+    {
+        return _text;
+    }
+
+    public override string InnerHTML()
+    {
+        return _text;
+    }
 }
 
 public class LightElementNode : LightNode, IEnumerable<LightNode>
@@ -46,8 +54,6 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
     private string _tagName;
     private bool _isBlock;
     private bool _selfClosing;
-
-    private INodeState _state;
 
     private List<string> _classes = new List<string>();
     private List<LightNode> _children = new List<LightNode>();
@@ -57,18 +63,6 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
         _tagName = tagName;
         _isBlock = isBlock;
         _selfClosing = selfClosing;
-
-        _state = new CreatedState();
-    }
-
-    public void SetState(INodeState state)
-    {
-        _state = state;
-    }
-
-    public string GetState()
-    {
-        return _state.GetStateName();
     }
 
     public void AddClass(string className)
@@ -76,29 +70,9 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
         _classes.Add(className);
     }
 
-    public void RemoveClass(string className)
-    {
-        _classes.Remove(className);
-    }
-
     public void AddChild(LightNode node)
     {
         _children.Add(node);
-
-        if (node is LightElementNode element)
-        {
-            element.SetState(new InsertedState());
-        }
-    }
-
-    public void RemoveChild(LightNode node)
-    {
-        _children.Remove(node);
-
-        if (node is LightElementNode element)
-        {
-            element.SetState(new RemovedState());
-        }
     }
 
     public override string InnerHTML()
@@ -107,13 +81,13 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
 
         foreach (var child in _children)
         {
-            result += child.OuterHTML();
+            result += child.Render();
         }
 
         return result;
     }
 
-    public override string OuterHTML()
+    protected override string BuildHTML()
     {
         string classAttr =
             _classes.Count > 0
@@ -126,6 +100,16 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
         }
 
         return $"<{_tagName}{classAttr}>{InnerHTML()}</{_tagName}>";
+    }
+
+    protected override void OnBeforeRender()
+    {
+        Console.WriteLine($"Before render: <{_tagName}>");
+    }
+
+    protected override void OnAfterRender()
+    {
+        Console.WriteLine($"After render: <{_tagName}>");
     }
 
     public IEnumerator<LightNode> GetEnumerator()
@@ -144,20 +128,18 @@ class Program
     static void Main()
     {
         var div = new LightElementNode("div", true, false);
+        div.AddClass("container");
+
+        var h1 = new LightElementNode("h1", true, false);
+        h1.AddChild(new LightTextNode("Hello World"));
 
         var p = new LightElementNode("p", true, false);
+        p.AddChild(new LightTextNode("This is paragraph"));
 
-        Console.WriteLine("Initial state:");
-        Console.WriteLine(p.GetState());
-
+        div.AddChild(h1);
         div.AddChild(p);
 
-        Console.WriteLine("\nAfter insert:");
-        Console.WriteLine(p.GetState());
-
-        div.RemoveChild(p);
-
-        Console.WriteLine("\nAfter remove:");
-        Console.WriteLine(p.GetState());
+        Console.WriteLine("\nRendered HTML:");
+        Console.WriteLine(div.Render());
     }
 }
