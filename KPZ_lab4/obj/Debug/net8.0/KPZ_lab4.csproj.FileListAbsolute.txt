@@ -12,3 +12,4 @@
 /Users/maksimkuc/Desktop/STUDY/KPZ/KPZ_lab4/obj/Debug/net8.0/KPZ_lab4.pdb
 /Users/maksimkuc/Desktop/STUDY/KPZ/KPZ_lab4/obj/Debug/net8.0/KPZ_lab4.genruntimeconfig.cache
 /Users/maksimkuc/Desktop/STUDY/KPZ/KPZ_lab4/obj/Debug/net8.0/ref/KPZ_lab4.dll
+/Users/maksimkuc/Desktop/STUDY/KPZ/KPZ_lab4/obj/Debug/net8.0/KPZ_lab4.sourcelink.json
