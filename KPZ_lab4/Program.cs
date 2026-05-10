@@ -1,6 +1,7 @@
 ﻿using KPZ_lab4.ChainOfResponsibility;
 using KPZ_lab4.Mediator;
 using KPZ_lab4.Memento;
+using KPZ_lab4.Observer;
 
 class Program
 {
@@ -11,6 +12,7 @@ class Program
             Console.WriteLine("\n=== Лабораторна робота №4 ===");
             Console.WriteLine("1 - Завдання 1: Chain of Responsibility");
             Console.WriteLine("2 - Завдання 2: Mediator");
+            Console.WriteLine("3 - Завдання 3: Observer");
             Console.WriteLine("5 - Завдання 5: Memento");
             Console.WriteLine("0 - Вихід");
             Console.Write("Ваш вибір: ");
@@ -25,6 +27,10 @@ class Program
 
                 case "2":
                     RunMediator();
+                    break;
+
+                case "3":
+                    RunObserver();
                     break;
 
                 case "5":
@@ -71,6 +77,37 @@ class Program
         aircraft1.TakeOff();
 
         aircraft3.Land();
+    }
+
+    static void RunObserver()
+    {
+        Console.WriteLine("\n=== Завдання 3: Observer ===");
+
+        var div = new LightElementNode("div", true, false);
+        div.AddClass("container");
+
+        var button = new LightElementNode("button", false, false);
+        button.AddChild(new LightTextNode("Click me"));
+
+        button.AddEventListener("click", () =>
+        {
+            Console.WriteLine("Button clicked!");
+        });
+
+        button.AddEventListener("mouseover", () =>
+        {
+            Console.WriteLine("Mouse over button!");
+        });
+
+        div.AddChild(button);
+
+        Console.WriteLine(div.OuterHTML());
+
+        Console.WriteLine("\nTrigger click:");
+        button.TriggerEvent("click");
+
+        Console.WriteLine("\nTrigger mouseover:");
+        button.TriggerEvent("mouseover");
     }
 
     static void RunMemento()
