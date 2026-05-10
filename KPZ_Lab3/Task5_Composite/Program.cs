@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 public abstract class LightNode
@@ -20,11 +21,12 @@ public class LightTextNode : LightNode
     public override string InnerHTML() => _text;
 }
 
-public class LightElementNode : LightNode
+public class LightElementNode : LightNode, IEnumerable<LightNode>
 {
     private string _tagName;
     private bool _isBlock;
     private bool _selfClosing;
+
     private List<string> _classes = new List<string>();
     private List<LightNode> _children = new List<LightNode>();
 
@@ -48,16 +50,21 @@ public class LightElementNode : LightNode
     public override string InnerHTML()
     {
         string result = "";
+
         foreach (var child in _children)
         {
             result += child.OuterHTML();
         }
+
         return result;
     }
 
     public override string OuterHTML()
     {
-        string classAttr = _classes.Count > 0 ? $" class=\"{string.Join(" ", _classes)}\"" : "";
+        string classAttr =
+            _classes.Count > 0
+            ? $" class=\"{string.Join(" ", _classes)}\""
+            : "";
 
         if (_selfClosing)
         {
@@ -65,6 +72,16 @@ public class LightElementNode : LightNode
         }
 
         return $"<{_tagName}{classAttr}>{InnerHTML()}</{_tagName}>";
+    }
+
+    public IEnumerator<LightNode> GetEnumerator()
+    {
+        return _children.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
 
@@ -85,5 +102,12 @@ class Program
         div.AddChild(p);
 
         Console.WriteLine(div.OuterHTML());
+
+        Console.WriteLine("\nIterator work:");
+
+        foreach (var node in div)
+        {
+            Console.WriteLine(node.OuterHTML());
+        }
     }
 }
