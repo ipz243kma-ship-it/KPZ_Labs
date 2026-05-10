@@ -1,0 +1,14 @@
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/bin/Debug/net8.0/Task4_Proxy
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/bin/Debug/net8.0/Task4_Proxy.deps.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/bin/Debug/net8.0/Task4_Proxy.runtimeconfig.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/bin/Debug/net8.0/Task4_Proxy.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/bin/Debug/net8.0/Task4_Proxy.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/Task4_Proxy.GeneratedMSBuildEditorConfig.editorconfig
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/Task4_Proxy.AssemblyInfoInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/Task4_Proxy.AssemblyInfo.cs
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/Task4_Proxy.csproj.CoreCompileInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/Task4_Proxy.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/refint/Task4_Proxy.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/Task4_Proxy.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/Task4_Proxy.genruntimeconfig.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task4_Proxy/obj/Debug/net8.0/ref/Task4_Proxy.dll

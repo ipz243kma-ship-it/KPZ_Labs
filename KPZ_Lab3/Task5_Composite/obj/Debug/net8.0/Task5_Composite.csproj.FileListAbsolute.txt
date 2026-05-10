@@ -1,0 +1,14 @@
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/bin/Debug/net8.0/Task5_Composite
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/bin/Debug/net8.0/Task5_Composite.deps.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/bin/Debug/net8.0/Task5_Composite.runtimeconfig.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/bin/Debug/net8.0/Task5_Composite.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/bin/Debug/net8.0/Task5_Composite.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/Task5_Composite.GeneratedMSBuildEditorConfig.editorconfig
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/Task5_Composite.AssemblyInfoInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/Task5_Composite.AssemblyInfo.cs
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/Task5_Composite.csproj.CoreCompileInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/Task5_Composite.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/refint/Task5_Composite.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/Task5_Composite.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/Task5_Composite.genruntimeconfig.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task5_Composite/obj/Debug/net8.0/ref/Task5_Composite.dll

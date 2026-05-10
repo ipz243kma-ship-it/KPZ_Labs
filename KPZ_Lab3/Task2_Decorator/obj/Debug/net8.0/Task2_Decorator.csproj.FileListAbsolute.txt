@@ -1,0 +1,14 @@
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/bin/Debug/net8.0/Task2_Decorator
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/bin/Debug/net8.0/Task2_Decorator.deps.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/bin/Debug/net8.0/Task2_Decorator.runtimeconfig.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/bin/Debug/net8.0/Task2_Decorator.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/bin/Debug/net8.0/Task2_Decorator.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/Task2_Decorator.GeneratedMSBuildEditorConfig.editorconfig
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/Task2_Decorator.AssemblyInfoInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/Task2_Decorator.AssemblyInfo.cs
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/Task2_Decorator.csproj.CoreCompileInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/Task2_Decorator.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/refint/Task2_Decorator.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/Task2_Decorator.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/Task2_Decorator.genruntimeconfig.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task2_Decorator/obj/Debug/net8.0/ref/Task2_Decorator.dll

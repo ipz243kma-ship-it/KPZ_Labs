@@ -1,0 +1,14 @@
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/bin/Debug/net8.0/Task6_Flyweight
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/bin/Debug/net8.0/Task6_Flyweight.deps.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/bin/Debug/net8.0/Task6_Flyweight.runtimeconfig.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/bin/Debug/net8.0/Task6_Flyweight.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/bin/Debug/net8.0/Task6_Flyweight.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/Task6_Flyweight.GeneratedMSBuildEditorConfig.editorconfig
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/Task6_Flyweight.AssemblyInfoInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/Task6_Flyweight.AssemblyInfo.cs
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/Task6_Flyweight.csproj.CoreCompileInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/Task6_Flyweight.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/refint/Task6_Flyweight.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/Task6_Flyweight.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/Task6_Flyweight.genruntimeconfig.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task6_Flyweight/obj/Debug/net8.0/ref/Task6_Flyweight.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Task6_Flyweight/1.0.0": {
+        "runtime": {
+          "Task6_Flyweight.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Task6_Flyweight/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

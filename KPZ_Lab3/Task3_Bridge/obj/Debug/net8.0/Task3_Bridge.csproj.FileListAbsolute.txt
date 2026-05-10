@@ -1,0 +1,14 @@
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/bin/Debug/net8.0/Task3_Bridge
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/bin/Debug/net8.0/Task3_Bridge.deps.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/bin/Debug/net8.0/Task3_Bridge.runtimeconfig.json
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/bin/Debug/net8.0/Task3_Bridge.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/bin/Debug/net8.0/Task3_Bridge.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/Task3_Bridge.GeneratedMSBuildEditorConfig.editorconfig
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/Task3_Bridge.AssemblyInfoInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/Task3_Bridge.AssemblyInfo.cs
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/Task3_Bridge.csproj.CoreCompileInputs.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/Task3_Bridge.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/refint/Task3_Bridge.dll
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/Task3_Bridge.pdb
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/Task3_Bridge.genruntimeconfig.cache
+/Applications/MAMP/htdocs/KPZ_Lab3/Task3_Bridge/obj/Debug/net8.0/ref/Task3_Bridge.dll
