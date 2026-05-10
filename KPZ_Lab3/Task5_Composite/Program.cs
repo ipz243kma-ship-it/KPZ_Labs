@@ -8,6 +8,26 @@ public abstract class LightNode
     public abstract string InnerHTML();
 }
 
+public interface INodeState
+{
+    string GetStateName();
+}
+
+public class CreatedState : INodeState
+{
+    public string GetStateName() => "Created";
+}
+
+public class InsertedState : INodeState
+{
+    public string GetStateName() => "Inserted";
+}
+
+public class RemovedState : INodeState
+{
+    public string GetStateName() => "Removed";
+}
+
 public class LightTextNode : LightNode
 {
     private string _text;
@@ -27,6 +47,8 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
     private bool _isBlock;
     private bool _selfClosing;
 
+    private INodeState _state;
+
     private List<string> _classes = new List<string>();
     private List<LightNode> _children = new List<LightNode>();
 
@@ -35,6 +57,18 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
         _tagName = tagName;
         _isBlock = isBlock;
         _selfClosing = selfClosing;
+
+        _state = new CreatedState();
+    }
+
+    public void SetState(INodeState state)
+    {
+        _state = state;
+    }
+
+    public string GetState()
+    {
+        return _state.GetStateName();
     }
 
     public void AddClass(string className)
@@ -50,11 +84,21 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
     public void AddChild(LightNode node)
     {
         _children.Add(node);
+
+        if (node is LightElementNode element)
+        {
+            element.SetState(new InsertedState());
+        }
     }
 
     public void RemoveChild(LightNode node)
     {
         _children.Remove(node);
+
+        if (node is LightElementNode element)
+        {
+            element.SetState(new RemovedState());
+        }
     }
 
     public override string InnerHTML()
@@ -93,59 +137,6 @@ public class LightElementNode : LightNode, IEnumerable<LightNode>
     {
         return GetEnumerator();
     }
-<<<<<<< HEAD
-}
-
-public interface ICommand
-{
-    void Execute();
-    void Undo();
-}
-
-public class AddChildCommand : ICommand
-{
-    private LightElementNode _parent;
-    private LightNode _child;
-
-    public AddChildCommand(LightElementNode parent, LightNode child)
-    {
-        _parent = parent;
-        _child = child;
-    }
-
-    public void Execute()
-    {
-        _parent.AddChild(_child);
-    }
-
-    public void Undo()
-    {
-        _parent.RemoveChild(_child);
-    }
-}
-
-public class AddClassCommand : ICommand
-{
-    private LightElementNode _element;
-    private string _className;
-
-    public AddClassCommand(LightElementNode element, string className)
-    {
-        _element = element;
-        _className = className;
-    }
-
-    public void Execute()
-    {
-        _element.AddClass(_className);
-    }
-
-    public void Undo()
-    {
-        _element.RemoveClass(_className);
-    }
-=======
->>>>>>> main
 }
 
 class Program
@@ -153,37 +144,20 @@ class Program
     static void Main()
     {
         var div = new LightElementNode("div", true, false);
-        var h1 = new LightElementNode("h1", true, false);
+
         var p = new LightElementNode("p", true, false);
 
-        h1.AddChild(new LightTextNode("Hello World"));
-        p.AddChild(new LightTextNode("This is paragraph"));
+        Console.WriteLine("Initial state:");
+        Console.WriteLine(p.GetState());
 
-        ICommand addContainerClass = new AddClassCommand(div, "container");
-        ICommand addHeader = new AddChildCommand(div, h1);
-        ICommand addParagraph = new AddChildCommand(div, p);
+        div.AddChild(p);
 
-        addContainerClass.Execute();
-        addHeader.Execute();
-        addParagraph.Execute();
+        Console.WriteLine("\nAfter insert:");
+        Console.WriteLine(p.GetState());
 
-        Console.WriteLine("After commands:");
-        Console.WriteLine(div.OuterHTML());
+        div.RemoveChild(p);
 
-<<<<<<< HEAD
-        addParagraph.Undo();
-
-        Console.WriteLine("\nAfter undo paragraph:");
-        Console.WriteLine(div.OuterHTML());
-
-        Console.WriteLine("\nIterator work:");
-=======
-        Console.WriteLine("\nIterator work:");
-
->>>>>>> main
-        foreach (var node in div)
-        {
-            Console.WriteLine(node.OuterHTML());
-        }
+        Console.WriteLine("\nAfter remove:");
+        Console.WriteLine(p.GetState());
     }
 }
